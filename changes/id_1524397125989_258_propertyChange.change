@@ -1,0 +1,35 @@
+{
+	"fileName": "id_1524397125989_258_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "i2d.qm.inspsubset.resultsrecords1.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "visible",
+		"newValue": "{ui>/editable}"
+	},
+	"selector": {
+		"id": "i2d.qm.inspsubset.resultsrecords1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_InspSubsetRsltRec--template::ObjectPage::FooterToolbar",
+		"type": "sap.m.OverflowToolbar",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/i2d.qm.inspsubset.resultsrecords1/changes/",
+	"creation": "2018-04-22T11:38:49.839Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.52.9"
+	},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "7.0.3",
+		"from": "7.0.3",
+		"to": "7.0.3"
+	}
+}

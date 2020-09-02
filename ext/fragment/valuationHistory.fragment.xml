@@ -1,0 +1,45 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:customChart="i2d.qm.inspsubset.resultsrecords1.customcontrol.viz"
+	xmlns:mchart="sap.suite.ui.microchart" xmlns:l="sap.ui.layout">
+	<!---->
+	<Dialog id="dialogForValuationHistory" contentWidth="50%" draggable = "true"
+		title="{ parts: [{path: 'InspectionOperation'}, {path: 'OperationText'}], formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.valuationHistoryDialogTitle' }">
+		<Table id="tableForValuationHistory" items="{to_InspSubsetValuation}">
+			<columns>
+				<Column hAlign="Right">
+					<Text text="{i18n>DateAndTime}"/></Column>
+				<Column hAlign="Center" demandPopin="true" minScreenWidth="Medium">
+					<Text text="{i18n>Valuation}"></Text>
+				</Column>
+				<Column demandPopin="true" minScreenWidth="XLarge">
+					<Text text="{i18n>Result}"></Text>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem id="columnForValuationHistory">
+					<cells>
+						<Text text="{InspSubsetDateTime}" textAlign="End"></Text>
+						<core:Icon src="{path: 'InspSubsetUsageDcsnValuation', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.DcsnIcon'}"
+							color="{path: 'InspSubsetUsageDcsnValuation', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.DcsnColor'}"/>
+						<FlexBox height="1.25rem">
+							<customChart:StackedBar size="Responsive">
+								<customChart:bars>
+									<mchart:StackedBarMicroChartBar/>
+									<mchart:StackedBarMicroChartBar/>
+									<mchart:StackedBarMicroChartBar/>
+								</customChart:bars>
+							</customChart:StackedBar>
+						</FlexBox>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<buttons>
+			<Button id="close" text="{i18n>Close}" press="onCloseValuationHistory"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,128 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:commons="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:sfi="sap.ui.comp.smartfield" xmlns:sfo="sap.ui.comp.smartform" xmlns:table="sap.ui.table"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns:uxap="sap.uxap" xmlns="sap.m"
+	xmlns:customChart="i2d.qm.inspsubset.resultsrecords1.customcontrol.viz" xmlns:mchart="sap.suite.ui.microchart"
+	xmlns:smartTable="sap.ui.comp.smarttable">
+	<!--entitySet="InspectionLotsSet"-->
+	<!--tableBindingPath="to_InspSubsetRsltRec"-->
+	<smartTable:SmartTable beforeRebindTable="onInspPointBeforeRebind" enableAutoBinding="false" entitySet="C_InspSubsetRsltRec"
+		id="inspectionPointSmartTable" persistencyKey="SmartTableInspPoint" tableType="ResponsiveTable" useExportToExcel="false"
+		useTablePersonalisation="false" demandPopin="true" useVariantManagement="false" header="{i18n>TableHeader_InspectionPoint}"
+		showRowCount="true" >
+		<!-- inset="true"-->
+		<Table class="sapUiNoContentPadding" growing="true" growingScrollToLoad="false" growingThreshold="20" id="inspectionPointTable">
+			<columns>
+				<Column demandPopin="true" width="19%" minScreenWidth="Medium" popinDisplay="Block" vAlign="Top">
+					<Text text="{i18n>Operation}"></Text>
+					<customData>
+						<!--<core:CustomData  key="p13nData" value='\{"filter":\{"visible":true\},"sort":\{"visible":true\},"group":\{"visible":true\}\}'/>-->
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "OperationText,InspectionOperation", "filterProperty" : "OperationText", "columnIndex":"1", "leadingProperty":"OperationText,InspectionOperation"}' />
+					</customData>
+				</Column>
+				<Column demandPopin="true" width="10%" minScreenWidth="Medium" popinDisplay="Block" vAlign="Top">
+					<Text text="{i18n>WorkCenter}"></Text>
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "WorkCenter","columnIndex":"2", "leadingProperty":"WorkCenter" ,"filterProperty" : "WorkCenter"}'/>
+					</customData>
+				</Column>
+				<Column demandPopin="true" hAlign="Right" width="18%" minScreenWidth="XLarge" popinDisplay="Inline" vAlign="Top"  >
+					<Text text="{i18n>DateAndTime}"></Text>
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "InspSubsetDateTime","columnIndex":"3","leadingProperty":"InspSubsetDateTime"}'/>
+					</customData>
+				</Column>
+				<!---->
+				<Column demandPopin="true" width="15%" minScreenWidth="XLarge" hAlign="Center" vAlign="Top">
+					<Text text="{i18n>StatusColumn}"></Text>
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "InspSubsetStatus","columnIndex":"4", "leadingProperty":"InspSubsetStatus" ,"filterProperty" : "InspSubsetStatus"}'/>
+					</customData>
+				</Column>
+				<Column demandPopin="true" class="sapUiLargeMarginEnd" width="16rem" minScreenWidth="XLarge" vAlign="Top">
+					<Text text="{i18n>ProgressOfCharacteristics}"></Text>
+					<customData>
+						<!--, "sortProperty" : "InspSubsetStatus","filterProperty" : "InspSubsetStatus"-->
+						<core:CustomData key="p13nData" value='\{"columnKey": "ProgressOfCharac","columnIndex":"5", "leadingProperty":"InspSubsetStatus" }'/>
+					</customData>
+				</Column>
+				<!--class="sapUiLargeMarginBegin"  -->
+				<Column demandPopin="true" hAlign="Left" width="14rem" minScreenWidth="XLarge" vAlign="Top" >
+					<Text text="{i18n>ValuationHistory}"></Text>
+					<customData>
+						<!--, "sortProperty" : "InspSubsetStatus","filterProperty" : "InspSubsetStatus-->
+						<core:CustomData key="p13nData" value='\{"columnKey": "ValuationHistory", "columnIndex":"6", "leadingProperty":"InspSubsetStatus"}'/>
+					</customData>
+				</Column>
+				<Column demandPopin="true" hAlign="Left" width="9rem" minScreenWidth="XLarge" vAlign="Top" id="Display_Edit_Column">
+					<Text text="{i18n>DISPLAY_EDIT_COLUMN_HEADER}" ></Text>
+					<customData>
+						<!--<core:CustomData  key="p13nDialogSettings" value='\{"columns":\{"visible":false\}}'/>-->
+					<core:CustomData key="p13nData"
+							value='\{"columnKey": "DisplayOrEdit","columnIndex":"7"}'/>
+					</customData>
+				</Column>
+			</columns>
+			<items>
+				<!--highlight="{path: 'DraftUUID', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.highlightDraftLineItem'}"-->
+				<ColumnListItem id="inspectionPointTableItems" press="onInspectionPointPress" type="Inactive" detailPress="onInpectionPointEditPress">
+					<cells>
+						<!--<Text text="{InspectionOperation} {OperationText}" class="sapUiSmallMarginEnd"></Text>-->
+						<ObjectIdentifier title="{InspectionOperation}" text="{OperationText}" class="sapUiTinyMarginTop"></ObjectIdentifier>
+						<Text text="{WorkCenter}" class="sapUiSmallMarginEnd sapUiTinyMarginTop"></Text>
+						<!--alignItems="Start" justifyContent="SpaceBetween"  class="sapUiLargeMarginEnd"-->
+						<HBox class="columns" alignItems="Start" justifyContent="End">
+							<!--width="9rem"-->
+							<core:Icon class="sapUiSmallMarginEnd sapUiTinyMarginTop" 
+								src="{ path: 'InspSubsetStatus', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.IconFormatter'}"></core:Icon>
+							<VBox>
+								<ObjectStatus id="Date_Time"
+								text="{InspSubsetDateTime}"
+								state="{ path: 'InspSubsetStatus', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.StatusStateFormatter' }" class = "sapUiTinyMarginTop" />				
+								<ObjectMarker
+									type="{ parts: [{path: 'DraftUUID'}, {path: 'IsActiveEntity'}, {path: 'DraftAdministrativeData'}], formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.DraftMarkerFunction'}"
+									class="sapUiSmallMarginTop" press="onDraftMarkerPress"/>
+							</VBox>
+						</HBox>
+						<ObjectStatus id="Status" class="sapUiSmallMarginEnd sapUiTinyMarginTop"
+							text="{ path: 'InspSubsetStatus', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.StatusTextFormatter' }"
+							state="{ path: 'InspSubsetStatus', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.StatusStateFormatter' }"></ObjectStatus>
+						<HBox width="12rem" class="sapUiTinyMarginTop">
+							<customChart:StackedBar size="Responsive" id="progressOfCharac">
+								<customChart:bars>
+									<mchart:StackedBarMicroChartBar/>
+									<mchart:StackedBarMicroChartBar/>
+									<mchart:StackedBarMicroChartBar/>
+								</customChart:bars>
+							</customChart:StackedBar>
+							<Text id="textForInspPlanned"  class="sapUiSmallMarginBegin" width="3rem"></Text>
+						</HBox>
+						<HBox width="12rem" class="sapUiTinyMarginTop" >
+							<customChart:StackedBar size="Responsive" press="onPressValuationHistory" id="valuationHistory" >
+								<customChart:bars >
+									<mchart:StackedBarMicroChartBar/>														
+									<mchart:StackedBarMicroChartBar/>
+									<mchart:StackedBarMicroChartBar/>
+								</customChart:bars>
+							</customChart:StackedBar>
+							<!--</FlexBox>-->
+						</HBox>
+						<HBox>
+							<core:Icon decorative = "false" tooltip = "{i18n>DISPLAY_ICON_TOOLTIP}" src="sap-icon://display"  class="sapUiMediumMarginEnd" press="onInspectionPointPress" visible="{ parts: [ {path: 'IsActiveEntity'}, {path: 'InspSubsetStatus'}], formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.DisplayIPVisibility' }" ariaLabelledBy = "Display_Edit_Column"/>
+							<core:Icon decorative = "false" tooltip = "{i18n>EDIT_ICON_TOOLTIP}" src="sap-icon://edit" press="onInpectionPointEditPress" visible = "{ parts: [{path: 'DraftUUID'}, {path: 'IsActiveEntity'}, {path: 'DraftAdministrativeData'}], formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.EditIconVisibility'}" ariaLabelledBy = "Display_Edit_Column"/>
+						</HBox>
+					
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</smartTable:SmartTable>
+</core:FragmentDefinition>

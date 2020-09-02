@@ -1,0 +1,19 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:commons="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:sfi="sap.ui.comp.smartfield" xmlns:sfo="sap.ui.comp.smartform" xmlns:table="sap.ui.table"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns:uxap="sap.uxap" xmlns="sap.m">
+	<!--<RadioButtonGroup id='datasetRadioGroup' enabled="{path: 'IsActiveEntity', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.ValuationFacetEnablement' }" buttons="{path: 'to_ValuationCodes'}" selectedIndex ="-1">-->
+	<!--	<buttons>-->
+	<!--		<RadioButton class='settingsRadio' text="{ parts: [{path: 'UsageDecisionCodeText'}, {path: 'UsageDecisionCode'}], formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.ValuationCodeRadioButtonText' }" select="onValuationSelection" selected = "{ path: 'UsageDecisionCode', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.RadioButtonSelectionFormatter' }" />-->
+	<!--	</buttons>-->
+	<!--</RadioButtonGroup>  -->
+		<RadioButtonGroup id='datasetRadioGroup' enabled="{path: 'IsActiveEntity', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.ValuationFacetEnablement'}" buttons="{valuationFacet>/results}" selectedIndex ="-1">
+		<buttons>
+			<RadioButton class='settingsRadio' text="{ parts: [{path: 'valuationFacet>UsageDecisionCodeText'}, {path: 'valuationFacet>UsageDecisionCode'}], formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.ValuationCodeRadioButtonText' }" select="onValuationSelection" selected = "{ parts: [{path: 'valuationFacet>UsageDecisionCode'}, {path: 'InspSubsetUsageDcsnCode'}], formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.RadioButtonSelectionFormatter' }" />
+		</buttons>
+	</RadioButtonGroup>  
+</core:FragmentDefinition>

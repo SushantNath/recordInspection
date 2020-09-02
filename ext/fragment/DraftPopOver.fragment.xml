@@ -1,0 +1,13 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns="sap.m">
+	<Popover id="DraftDetailsPopover" placement="Bottom" title="{i18n>Draft}" showHeader="true" class="sapUiContentPadding sapUiSizeCompact">
+		<VBox id="DraftDetailsBox" alignItems="Stretch" alignContent="Stretch">
+			<Text id="DraftDetailsText" text="{ path: 'DraftEntityLastChangeDateTime', formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.DatefunctionForDraftPopOver' }" wrapping="true"/>
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

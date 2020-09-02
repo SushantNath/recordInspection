@@ -1,0 +1,35 @@
+{
+	"fileName": "id_1524818385508_258_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "i2d.qm.inspsubset.resultsrecords1.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "objectTitle", 
+		"newValue": "{ parts: [ {path: 'InspSubsetDateFieldName'}, {path: 'InspSubsetTimeFieldName'},{path : 'InspSbstDateFldProperty'},{path : 'InspSbstTimeFldProperty'},{path:'InspSubsetDateTime'}], formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.DateTimeHeaderData' }" 
+	},
+	"selector": {
+		"id": "i2d.qm.inspsubset.resultsrecords1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_InspSubsetRsltRec--objectPageHeader",
+		"type": "sap.uxap.ObjectPageHeader",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR", 
+	"texts": {},
+	"namespace": "apps/i2d.qm.inspsubset.resultsrecords1/changes/",
+	"creation": "2018-04-27T08:39:49.401Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.54.3"
+	},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "7.0.3",
+		"from": "7.0.3",
+		"to": "7.0.3"
+	}
+}

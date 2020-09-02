@@ -1,0 +1,34 @@
+{
+	"fileName": "id_1509268347195_126_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "i2d.qm.inspsubset.resultsrecords1.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "visible",
+		"newValue": false
+	},
+	"selector": {
+		"id": "i2d.qm.inspsubset.resultsrecords1::sap.suite.ui.generic.template.ListReport.view.ListReport::C_InspLotRsltRec--listReport-variant",
+		"type": "sap.ui.comp.smartvariants.SmartVariantManagement",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/i2d.qm.inspsubset.resultsrecords1/changes/",
+	"creation": "2017-10-29T09:12:45.146Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.48.4"
+	},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "7.0.3",
+		"from": "7.0.3"
+	}
+}

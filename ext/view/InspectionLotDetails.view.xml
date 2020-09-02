@@ -1,0 +1,24 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:View xmlns:commons="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:sfi="sap.ui.comp.smartfield" xmlns:sfo="sap.ui.comp.smartform" xmlns:table="sap.ui.table"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns:uxap="sap.uxap" xmlns="sap.m">
+	<VBox>
+		<HBox>
+			<Label text="{i18n|sap.suite.ui.generic.template.ObjectPage|C_InspLotRsltRec>LABEL_PLANT}" class = "sapUiTinyMarginEnd"/>
+			<Text text="{Plant}"/>
+		</HBox>
+		<HBox>
+			<Label text="{i18n|sap.suite.ui.generic.template.ObjectPage|C_InspLotRsltRec>LABEL_MATERIAL}" class = "sapUiTinyMarginEnd"/>
+			<Text  text="{ parts: [{path: 'Material'}, {path: 'MaterialName'}], formatter: 'i2d.qm.inspsubset.resultsrecords1.ext.formatter.Formatters.MaterialDescConcatenation' }"/>
+				<!--<Text text="{Material} ({MaterialName})"/>-->
+		</HBox>
+		<HBox>
+			<Label text="{i18n|sap.suite.ui.generic.template.ObjectPage|C_InspLotRsltRec>LABEL_BATCH}" class = "sapUiTinyMarginEnd"/>
+			<Text text="{Batch}"/>
+		</HBox>
+	</VBox>
+</core:View>
